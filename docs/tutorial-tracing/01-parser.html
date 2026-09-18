@@ -1,0 +1,28 @@
+<!doctype html><meta charset="utf-8"><title>1. Dispatching the edit command — actual JDB transcript</title>
+<style>body{margin:22px;background:#f8fafc;color:#17212f;font:14px system-ui}h1{font-size:20px;margin:0 0 5px}p{margin:4px 0 15px;color:#526174;font-size:12px}pre{padding:17px;background:#fff;border:1px solid #ccd5df;border-radius:6px;white-space:pre-wrap;overflow-wrap:anywhere;font:12px/1.35 ui-monospace,Menlo,monospace}</style>
+<h1>1. Dispatching the edit command</h1>
+<p>Recorded JDK debugger output · team baseline 28f58b7b · edit 1 n/Alice Yeoh · 18 Sep 2026<br>Evidence viewer of a real debugger run, not an IntelliJ screenshot. Driver: TraceEdit → LogicManager.execute.</p>
+<pre>locals
+where
+list
+Method arguments:
+userInput = "edit 1 n/Alice Yeoh"
+Local variables:
+matcher = instance of java.util.regex.Matcher(id=1290)
+commandWord = "edit"
+arguments = " 1 n/Alice Yeoh"
+main[1]   [1] seedu.address.logic.parser.AddressBookParser.parseCommand (AddressBookParser.java:56)
+  [2] seedu.address.logic.LogicManager.execute (LogicManager.java:48)
+  [3] TraceEdit.main (TraceEdit.java:21)
+main[1] 52            logger.fine("Command word: " + commandWord + "; Arguments: " + arguments);
+53    
+54            return switch (commandWord) {
+55                case AddCommand.COMMAND_WORD -&gt; new AddCommandParser().parse(arguments);
+56 =&gt;             case EditCommand.COMMAND_WORD -&gt; new EditCommandParser().parse(arguments);
+57                case DeleteCommand.COMMAND_WORD -&gt; new DeleteCommandParser().parse(arguments);
+58                case ClearCommand.COMMAND_WORD -&gt; new ClearCommand();
+59                case FindCommand.COMMAND_WORD -&gt; new FindCommandParser().parse(arguments);
+60                case ListCommand.COMMAND_WORD -&gt; new ListCommand();
+61                case ExitCommand.COMMAND_WORD -&gt; new ExitCommand();
+main[1] </pre>
+

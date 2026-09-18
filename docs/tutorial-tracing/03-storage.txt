@@ -1,0 +1,35 @@
+locals
+where
+list
+Method arguments:
+addressBook = instance of seedu.address.model.AddressBook(id=1367)
+filePath = instance of sun.nio.fs.UnixPath(id=1368)
+Local variables:
+main[1]   [1] seedu.address.storage.JsonAddressBookStorage.saveAddressBook (JsonAddressBookStorage.java:86)
+  [2] seedu.address.storage.JsonAddressBookStorage.saveAddressBook (JsonAddressBookStorage.java:73)
+  [3] seedu.address.storage.StorageManager.saveAddressBook (StorageManager.java:65)
+  [4] seedu.address.logic.LogicManager.execute (LogicManager.java:52)
+  [5] TraceEdit.main (TraceEdit.java:21)
+main[1] 82            requireNonNull(addressBook);
+83            requireNonNull(filePath);
+84    
+85            FileUtil.createIfMissing(filePath);
+86 =>         JsonUtil.saveJsonFile(new JsonSerializableAddressBook(addressBook), filePath);
+87        }
+88    
+89    }
+main[1] 
+Persisted JSON after continuing the same debugger run:
+{
+  "persons" : [ {
+    "name" : "Alice Yeoh",
+    "phone" : "87438807",
+    "email" : "alexyeoh@example.com",
+    "address" : "Blk 30 Geylang Street 29, #06-40",
+    "tags" : [ "friends" ]
+  }, {
+    "name" : "Bernice Yu",
+    "phone" : "99272758",
+    "email" : "berniceyu@example.com",
+    "address" : "Blk 30 Lorong 3 Serangoon Gardens, #07-18",
+    "tags" : [ "colleagues", "friends" ]

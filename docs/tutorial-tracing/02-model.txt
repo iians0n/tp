@@ -1,0 +1,27 @@
+locals
+where
+list
+Method arguments:
+model = instance of seedu.address.model.ModelManager(id=1341)
+Local variables:
+lastShownList = instance of javafx.collections.transformation.FilteredList(id=1342)
+personToEdit = instance of seedu.address.model.person.Person(id=1343)
+editedPerson = instance of seedu.address.model.person.Person(id=1344)
+main[1]   [1] seedu.address.logic.commands.EditCommand.execute (EditCommand.java:86)
+  [2] seedu.address.logic.LogicManager.execute (LogicManager.java:49)
+  [3] TraceEdit.main (TraceEdit.java:21)
+main[1] 82            if (!personToEdit.isSamePerson(editedPerson) && model.hasPerson(editedPerson)) {
+83                throw new CommandException(MESSAGE_DUPLICATE_PERSON);
+84            }
+85    
+86 =>         model.setPerson(personToEdit, editedPerson);
+87            model.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
+88            return new CommandResult(String.format(MESSAGE_EDIT_PERSON_SUCCESS, Messages.format(editedPerson)));
+89        }
+90    
+91        /**
+main[1] print personToEdit
+ personToEdit = "seedu.address.model.person.Person{name=Alex Yeoh, phone=87438807, email=alexyeoh@example.com, address=Blk 30 Geylang Street 29, #06-40, tags=[[friends]]}"
+main[1] print editedPerson
+ editedPerson = "seedu.address.model.person.Person{name=Alice Yeoh, phone=87438807, email=alexyeoh@example.com, address=Blk 30 Geylang Street 29, #06-40, tags=[[friends]]}"
+main[1]
